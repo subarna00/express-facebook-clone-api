@@ -1,7 +1,7 @@
-import dotenv from "dotenv";
-import bunyan from "bunyan";
+import dotenv from 'dotenv';
+import bunyan from 'bunyan';
 
-dotenv.config({})
+dotenv.config({});
 
 class Config{
     public DATABASE_URL: string | undefined;
@@ -22,13 +22,13 @@ class Config{
     }
     
     public createLogger(name:string): bunyan{
-        return bunyan.createLogger({name,level:"debug"})
+        return bunyan.createLogger({name,level:'debug'});
     }
 
     public validateConfig(): void{
         for(const [key,value] of Object.entries(this)){
             if(value === undefined){
-                throw new Error(`Config ${key} is undefined`)
+                throw new Error(`Config ${key} is undefined`);
             }
         }
     }

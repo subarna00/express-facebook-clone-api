@@ -1,8 +1,8 @@
-import express,{Express} from "express";
+import express,{Express} from 'express';
 
-import { FBServer } from "./setupServer";
-import setupDB from "./setupDB";
-import { config } from "./config";
+import { FBServer } from './setupServer';
+import setupDB from './setupDB';
+import { config } from './config';
 class MainApplication {
     public initilize(): void {
         this.loadConfig();
