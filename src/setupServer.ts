@@ -12,9 +12,9 @@ import { createClient } from 'redis';
 import { createAdapter } from '@socket.io/redis-adapter';
 
 import 'express-async-errors';
-import { config } from './config';
-import applicationRoutes from './routes';
-import { CustomError, ErrorResponse } from './shared/globals/errors-handelers';
+import { config } from '@root/config';
+import applicationRoutes from '@root/routes';
+import { CustomError, ErrorResponse } from '@global/errors-handelers';
 
 const SERVER_PORT = 5010;
 const log: Logger = config.createLogger('server');
@@ -79,20 +79,20 @@ export class FBServer{
         try {
             const httpServer: http.Server = new http.Server(app);
             const socketIO: SocketServer = await this.createSocketIO(httpServer);
-            this.startHttpServer(httpServer);  
+            this.startHttpServer(httpServer);
             this.socketIOConnections(socketIO);
         } catch (error) {
             log.error(error);
-            
+
         }
     }
 
     private startHttpServer(httpServer: http.Server): void {
         log.info(`Server has started with process ${process.pid}`);
-        
+
         httpServer.listen(SERVER_PORT,()=>{
             log.info(`Server running on port ${SERVER_PORT}`);
-            
+
         });
     }
 
@@ -112,8 +112,10 @@ export class FBServer{
     }
 
     private socketIOConnections(io: SocketServer): void {
+      console.log(io);
+
     }
 
- 
+
 
 }
