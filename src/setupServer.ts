@@ -14,7 +14,7 @@ import { createAdapter } from '@socket.io/redis-adapter';
 import 'express-async-errors';
 import { config } from '@root/config';
 import applicationRoutes from '@root/routes';
-import { CustomError, ErrorResponse } from '@global/errors-handelers';
+import { CustomError, ErrorResponse } from '@global/helpers/errors-handelers';
 
 const SERVER_PORT = 5010;
 const log: Logger = config.createLogger('server');

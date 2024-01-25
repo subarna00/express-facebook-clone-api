@@ -13,6 +13,7 @@ class MainApplication {
     }
     public loadConfig():void{
         config.validateConfig();
+        config.coludnaryConfig();
     }
 }
 
